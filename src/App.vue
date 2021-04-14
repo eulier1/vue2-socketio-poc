@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img style="text-align: left; margin-left: 15px" width="45px" alt="Vue logo" src="./assets/logo.png">
+    <Chat />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Chat from './components/Chat.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Chat
   }
 }
 </script>
@@ -21,8 +21,12 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+body { 
+  margin: 0; 
+  padding-bottom: 3rem; 
 }
 </style>

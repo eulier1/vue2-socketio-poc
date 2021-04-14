@@ -1,6 +1,14 @@
 # vue2-socketio-poc
 
+Proof of concepts with socket-io with Vue 2 and [vue-socket.io-extended](https://github.com/probil/vue-socket.io-extended)
 ## Project setup
+
+### Run Socket.io Server (Node v12.22.1)
+```
+docker-compose up
+```
+
+### Install Dependencies for Front-end
 ```
 npm install
 ```
