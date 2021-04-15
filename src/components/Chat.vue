@@ -1,8 +1,12 @@
 <template>
   <div>
-    <ul id="messages"></ul>
-    <form id="form" action="">
-      <input id="input" autocomplete="off" /><button>Send</button>
+    <span>{{ $socket.connected ? 'Connected' : 'Disconnected' }}</span>
+    <ul id="messages" v-for="(data, i) in messages" :key="i">
+      <li>{{data}}</li>
+    </ul>
+    <form id="form" @submit.prevent="clickButton">
+      <input id="input" v-model="msg" autocomplete="off" />
+      <input type="submit" value="Submit"> 
     </form>
   </div>
 </template>
@@ -10,6 +14,29 @@
 <script>
 export default {
   name: 'Chat',
+  data() {
+    return {
+      msg: '',
+      messages: []
+    }
+  },
+  sockets: {
+    connect() {
+      console.log('socket connected')
+    },
+    chatMessage(msg) {
+      console.log('this method was fired by the socket server. eg: io.emit("customEmit", data)', msg)
+      this.messages.push(msg)
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+  },
+  methods: {
+    clickButton() {
+      // this.$socket.client is `socket.io-client` instance
+      this.$socket.client.emit('chatMessage', this.msg);
+      this.msg = ''
+    }
+  }
 }
 </script>
 
