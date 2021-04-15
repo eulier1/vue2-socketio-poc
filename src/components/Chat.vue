@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <span>{{ $socket.connected ? 'Connected' : 'Disconnected' }}</span>
+  <div v-if="$socket.connected">
     <ul id="messages" v-for="(data, i) in messages" :key="i">
       <li>{{data}}</li>
     </ul>
@@ -8,6 +7,9 @@
       <input id="input" v-model="msg" autocomplete="off" />
       <input type="submit" value="Submit"> 
     </form>
+  </div>
+  <div v-else>
+    <h3>It seems the socket is not connected, check the socket listen port</h3>
   </div>
 </template>
 

@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <img style="text-align: left; margin-left: 15px" width="45px" alt="Vue logo" src="./assets/logo.png">
-    <h1 style="text-align: left; margin-left: 15px">Feature under construction</h1>
     <Chat />
   </div>
 </template>
