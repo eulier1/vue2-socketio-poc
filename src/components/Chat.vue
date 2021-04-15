@@ -25,7 +25,7 @@ export default {
       console.log('socket connected')
     },
     chatMessage(msg) {
-      console.log('this method was fired by the socket server. eg: io.emit("customEmit", data)', msg)
+      console.log('this method was fired by the socket server. eg: io.emit("chatMessage", data)', msg)
       this.messages.push(msg)
       window.scrollTo(0, document.body.scrollHeight);
     }
